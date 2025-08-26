@@ -4,26 +4,26 @@
 #30% de la calificación del examen final.
 #15% de la calificación de un trabajo final.
 
-#p1=float(input("Ingresar calificación del primer parcial: "))
-#p2=float(input("Ingresar calificación del segundo parcial: "))
-#p3=float(input("Ingresar calificación del tercer parcial: "))
-#exam_f=float(input("Ingresar calificación del Examen final: "))
-#trab_f=float(input("Ingresar calificación del Trabajo final: "))
-#prom_parciales=((p1+p2+p3)/3)
-#calif_f=(prom_parciales*0.55)+(exam_f*0.3)+(trab_f*0.15)
-#print(f"Su calificación final es: {calif_f}")
+p1=float(input("Ingresar calificación del primer parcial: "))
+p2=float(input("Ingresar calificación del segundo parcial: "))
+p3=float(input("Ingresar calificación del tercer parcial: "))
+exam_f=float(input("Ingresar calificación del Examen final: "))
+trab_f=float(input("Ingresar calificación del Trabajo final: "))
+prom_parciales=((p1+p2+p3)/3)
+calif_f=(prom_parciales*0.55)+(exam_f*0.3)+(trab_f*0.15)
+print(f"Su calificación final es: {calif_f}")
 
 #Ejercicio 7: Conversión de divisas
 #Un programa que lea un monto en dólares y lo convierta a pesos colombianos, 
 #argentinos y euros usando tasas de cambio fijas definidas en el código.
 
-#dolares=float(input("Ingrese el monto en dolares que desea cambiar: "))
-#colom=dolares*4026.94
-#arg=dolares*1359
-#euro=dolares*0.86
-#print(f"Pesos colombianos:{colom}")
-#print(f"Pesos argentinos:{arg}")
-#print(f"Euros:{euro}")
+dolares=float(input("Ingrese el monto en dolares que desea cambiar: "))
+colom=dolares*4026.94
+arg=dolares*1359
+euro=dolares*0.86
+print(f"Pesos colombianos:{colom}")
+print(f"Pesos argentinos:{arg}")
+print(f"Euros:{euro}")
 
 #Ejercicio 8: Viaje en auto
 #Un auto consume 8 litros cada 100 km. 
@@ -48,3 +48,32 @@ print(f"Horas de viaje: {horas} horas")
 #El usuario ingresa el monto solicitado, y el programa debe calcular:
 #el monto total a devolver,
 #el valor de cada cuota mensual.
+
+monto=float(input("Monto solicitado: "))
+interes=float(input("Porcentaje de interes anual: "))
+cuotas=int(input("Cantidad de meses para pagar: "))
+veraz=str(input("Usted se encuentra en el veraz (Si/No): "))
+ingresos_netos_mensuales=float(input("Sueldo mensual "))
+if veraz=="No":
+    print("Usted si puede solicitar un prestamo")
+    if cuotas>12 or cuotas<72:
+        print("La cantidad de cuotas es correcta")
+        porc_sueldo_30=ingresos_netos_mensuales*(30/100)
+        #Cuota = [P x R x (1+R)^N] / [(1+R)^N - 1] donde P es el capital del préstamo, R es la tasa de interés mensual
+        # (en este caso, 0.02 si el 2% es mensual), y N es el número total de cuotas o pagos. 
+        primer_paso=(1+(interes/100))**cuotas
+        segundo_paso= monto*(interes/100)*primer_paso
+        tercer_paso=primer_paso-1
+        cuota_mensual=segundo_paso/tercer_paso
+        cuota_mensual=round(cuota_mensual,2)
+        print(f"Cuota a pagar por mes: ${cuota_mensual}")
+        if porc_sueldo_30>cuota_mensual:
+            print("El 30 porciento de su sueldo es mayor a la cuota a pagar por mes")
+        else:
+            print("El 30 porciento de su sueldo es menor a la cuota a pagar por mes")
+    else:
+        print("La cantidad de cuotas NO es correcta")
+    total=cuota_mensual*cuotas
+    print(f"Total a pagar: ${total}")
+else:
+    print("Usted NO puede solicitar un prestamo")
