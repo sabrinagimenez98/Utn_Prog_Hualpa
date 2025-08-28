@@ -38,4 +38,21 @@ if dni>1000000 and dni<99999999:
 else:
     print("El dni ingresado es invalido")
 
-    
+#Ejercico_3
+#Un banco necesita evaluar créditos personales.
+nombre_banco=str(input("Nombre y Apellido: "))
+cuit=input("Ingrese su CUIT (Ej: 20-99999999-5): ")
+ingresos_mensuales=float(input("Ingrese sus ingresos mensuales: "))
+antiguedad=int(input("Ingrese su antiguedad en años: "))
+historial=str(input("Cual es tu historial crediticio: bueno / regular / malo "))
+if historial!="malo" and ingresos>=200000 and antiguedad>=2 :
+    if historial=="bueno":
+
+
+Condiciones:
+•	Si historial = malo → rechazo inmediato.
+•	Si ingresos < $200.000 → rechazo.
+•	Si ingresos ≥ $200.000 y antigüedad < 2 años → solo puede pedir hasta $500.000.
+•	Si ingresos ≥ $200.000 y antigüedad ≥ 2 años:
+o	Historial regular → hasta $1.000.000.
+o	Historial bueno → hasta $3.000.000.
