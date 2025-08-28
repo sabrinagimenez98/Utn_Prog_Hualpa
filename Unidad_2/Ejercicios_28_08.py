@@ -1,13 +1,22 @@
 #Ejercicio_1
 #La universidad desea automatizar la postulación a becas
-#nombre=str(input("Nombre y Apellido: "))
-#edad=int(input("Ingrese su edad: "))
-#promedio=float(input("Ingrese su promedio general: "))
-#ingresos=float(input("Ingresos familiares mensuales: "))
+nombre_uni=str(input("Nombre y Apellido: "))
+edad=int(input("Ingrese su edad: "))
+promedio=float(input("Ingrese su promedio general: "))
+ingresos=float(input("Ingresos familiares mensuales: "))
+if promedio>=6:
+    if ingresos<300000:
+        print("Beca completa")
+    elif 300000<ingresos<600000:
+        print("Media Beca")
+    else:
+        print("Rechazado")
+else:
+    print("Rechazado")
 
 #Ejercicio_2
 #Un hospital quiere organizar turnos según el tipo de paciente. El sistema debe pedir:
-nombre=str(input("Nombre y Apellido: "))
+nombre_hospital=str(input("Nombre y Apellido: "))
 dni=int(input("Ingrese su DNI: "))
 
 if dni>1000000 and dni<99999999:
@@ -28,3 +37,5 @@ if dni>1000000 and dni<99999999:
             print("Usted tiene turno en 7 dias")
 else:
     print("El dni ingresado es invalido")
+
+    
