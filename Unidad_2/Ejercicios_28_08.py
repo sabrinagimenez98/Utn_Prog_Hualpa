@@ -16,6 +16,7 @@ else:
 
 #Ejercicio_2
 #Un hospital quiere organizar turnos según el tipo de paciente. El sistema debe pedir:
+
 nombre_hospital=str(input("Nombre y Apellido: "))
 dni=int(input("Ingrese su DNI: "))
 
@@ -40,20 +41,20 @@ else:
 
 #Ejercico_3
 #Un banco necesita evaluar créditos personales.
+
 nombre_banco=str(input("Nombre y Apellido: "))
 cuit=input("Ingrese su CUIT (Ej: 20-99999999-5): ")
 ingresos_mensuales=float(input("Ingrese sus ingresos mensuales: "))
 antiguedad=int(input("Ingrese su antiguedad en años: "))
-historial=str(input("Cual es tu historial crediticio: bueno / regular / malo "))
+historial=str(input("Cual es tu historial crediticio: bueno / regular / malo: "))
 
-#if historial!="malo" and ingresos>=200000 and antiguedad>=2 :
-#    if historial=="bueno":
-
-
-#Condiciones:
-#•	Si historial = malo → rechazo inmediato.
-#•	Si ingresos < $200.000 → rechazo.
-#•	Si ingresos ≥ $200.000 y antigüedad < 2 años → solo puede pedir hasta $500.000.
-#•	Si ingresos ≥ $200.000 y antigüedad ≥ 2 años:
-#o	Historial regular → hasta $1.000.000.
-#o	Historial bueno → hasta $3.000.000.
+if historial!="malo" and ingresos_mensuales>=200000:
+    if antiguedad<2:
+        print("Usted puede pedir un credito de hasta $500.000")
+    else:
+        if historial=="bueno":
+            print("Usted puede pedir un credito de hasta $3.000.000")
+        elif historial=="regular":
+            print("Usted puede pedir un credito de hasta $1.000.000")
+else:
+    print("Usted no puede pedir un credito")
